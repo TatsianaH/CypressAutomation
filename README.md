@@ -1,6 +1,6 @@
 # CypressAutomation
 
-#Installation
+# Installation
 1. Download Node.js (www.nodejs.org).
 2. Create an empty folder for Cypress project.
 3. Download VSC (Visual studio code - code.visualstudio.com, for MacOS you also need to download Xcode from Apple store).
