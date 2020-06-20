@@ -9,7 +9,7 @@
 5. Run in terminal ‘npm init’ command to generate package.json.
 6. Run in terminal ‘npm install cypress —save-dev’.
 7. Add all files in your local project to git (git add. Or git add _name of the file_) and commit them: ‘git commit -m “message text”’. Don't forget to save your changes in files before commiting (Cmd+S).
-8. To run Cypress in your project you can use the next command: ‘node_modules/.bin/cypress open’. After you will see in your project folder 'cypress' with examples.
+8. To run Cypress in your project you can use the next command: ‘./node_modules/.bin/cypress open’ or 'npx cypress open'. After you will see in your project folder 'cypress' with examples. Also you can add a new scritp to package.json file: ' "cypress:open": "cypress open"' and open the Cypress Runner using the command 'npm run cypress:open'.
 9. Create a test1.js file in cypress/integration/examples/.
 10. Install Prettier: npm install --save-dev --save-exact prettier.
 11. Create in root folder '.prettierrc.json' file and paste into it the next settings:
@@ -76,3 +76,15 @@ npm i -D eslint-plugin-cypress
 ],
 "plugins": ["cypress"]
 }
+
+22. Add first test to test1.spec.js:
+
+describe('My First Test', () => {
+it('should open a home page', () => {
+cy.visit('_link_');
+});
+});
+
+Then add before test suite the next command (it will load all Cypress command, when you write the code):
+
+/// <reference types="Cypress" />
