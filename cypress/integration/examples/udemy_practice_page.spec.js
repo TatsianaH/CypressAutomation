@@ -62,6 +62,8 @@ describe('Practice with different forms, buttons, checkboxes', () => {
     cy.get('#opentab').invoke('removeAttr', 'target').click();
     cy.wait(3000);
     cy.url().should('be.equal', 'https://www.rahulshettyacademy.com/#/index');
+
+    // go back to previous url
     cy.go('back');
   });
 });
