@@ -35,4 +35,33 @@ describe('Practice with different forms, buttons, checkboxes', () => {
     // radio button
     cy.get('input[value="radio2"]').check().should('be.checked');
   });
+
+  it('should work with alerts and confirm pop-us', () => {
+    // windows:alert
+    cy.get('#alertbtn').click();
+
+    cy.on('windows:alert', (str) => {
+      expect(str).to.be.equal(
+        'Hello , share this practice page and share your knowledge',
+      );
+    });
+
+    // windows:confirm
+    cy.get('#confirmbtn').click();
+
+    cy.on('windows:confirm', (str) => {
+      expect(str).to.be.equal('Hello , Are you sure you want to confirm?');
+    });
+
+    // cy.on('windows:confirm', () => {
+    //   return false;
+    // });
+  });
+
+  it('should open a new tab in the same browser and window (work with JQuery commands)', () => {
+    cy.get('#opentab').invoke('removeAttr', 'target').click();
+    cy.wait(3000);
+    cy.url().should('be.equal', 'https://www.rahulshettyacademy.com/#/index');
+    cy.go('back');
+  });
 });
