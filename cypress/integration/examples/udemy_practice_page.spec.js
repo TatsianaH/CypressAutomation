@@ -65,5 +65,27 @@ describe('Practice with different forms, buttons, checkboxes', () => {
 
     // go back to previous url
     cy.go('back');
+
+    cy.url().should('be.equal', 'https://www.rahulshettyacademy.com/AutomationPractice/');
+  });
+
+  it('should work with web tables', () => {
+    // get all text in the 2nd column of the table
+    cy.get('tr td:nth-child(2)').each((el, ind, list) => {
+      const text = el.text();
+
+      //verify which one contains the necessary text
+      if (text.includes('Python')) {
+        // get the next child element
+        cy.get('tr td:nth-child(2)')
+          .eq(ind)
+          .next()
+          .then((price) => {
+            const priceAmount = price.text();
+            //verify the price
+            expect(priceAmount).to.be.equal('25');
+          });
+      }
+    });
   });
 });
