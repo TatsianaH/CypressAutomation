@@ -88,3 +88,12 @@ cy.visit('_link_');
 Then add before test suite the next command (it will load all Cypress command, when you write the code):
 
 /// <reference types="Cypress" />
+
+23. To work with iframes run in the terminal the next command:
+
+npm install -D cypress-iframe
+
+Then import it in your test file:
+
+import 'cypress-iframe'
+/// <reference types="cypress-iframe" />

@@ -1,4 +1,6 @@
 /// <reference types="Cypress" />
+/// <reference types="cypress-iframe" />
+import 'cypress-iframe';
 
 describe('Practice with different forms, buttons, checkboxes', () => {
   it('should check, uncheck buttons, select dropdown menu`s item', () => {
@@ -87,5 +89,30 @@ describe('Practice with different forms, buttons, checkboxes', () => {
           });
       }
     });
+  });
+
+  it('should work with mouse hover', () => {
+    cy.get('div .mouse-hover-content').invoke('show');
+    cy.contains('Top').click();
+    cy.url().should('include', 'top');
+    cy.get('#mousehover').scrollIntoView();
+
+    cy.contains('Reload').click({ force: true });
+    cy.url().should(
+      'to.be.equal',
+      'https://www.rahulshettyacademy.com/AutomationPractice/',
+    );
+  });
+
+  //   it('should handle with child windows', () => {
+  //     //   cy.get('#openwindow').invoke('removeAttr', 'onclick').click();
+  //     cy.get('#openwindow').click();
+  //       cy.url().should('to.be.equal', 'http://www.qaclickacademy.com/');
+  // });
+
+  it('should work with iframes', () => {
+    cy.frameLoaded('#courses-iframe');
+    cy.iframe().find('a[href="#/mentorship"]').eq(0).click();
+    cy.iframe().find('.pricing-title').should('have.length', 2);
   });
 });
