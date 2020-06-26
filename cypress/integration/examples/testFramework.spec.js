@@ -19,7 +19,6 @@ describe('Test', () => {
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
     cy.get('.form-group input[name="name"]').should('have.attr', 'minlength', '2');
     cy.get('.form-group input[name="name"]').type(this.data.name);
-    cy.log(this.data.name);
     cy.get('.form-group input[name="name"]').should('have.value', this.data.name);
     cy.get('h4 input[name="name"]').should('have.value', this.data.name);
     cy.get('input[name="email"]').type(this.data.email);
@@ -40,9 +39,13 @@ describe('Test', () => {
     //   });
     cy.get('.nav-link').eq(1).click();
     cy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');
-    cy.selectProduct('iphone X');
-    cy.selectProduct('Samsung Note 8');
-    cy.selectProduct('Nokia Edge');
-    cy.selectProduct('Blackberry');
+
+    // create custom Cypress command in support/commands.js
+    this.data.productName.forEach(function (el) {
+      cy.selectProduct(el);
+    });
+
+    cy.get('a.nav-link.btn.btn-primary').click();
+    cy.get('h4.media-heading').should('have.length', '4');
   });
 });
