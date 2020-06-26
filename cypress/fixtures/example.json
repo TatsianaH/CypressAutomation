@@ -2,5 +2,9 @@
   "name": "Samanta",
   "email": "tyt@tyt.by",
   "gender": "Female",
-  "productName": ["iphone X", "Samsung Note 8", "Nokia Edge", "Blackberry"]
+  "productName": ["iphone X", "Samsung Note 8", "Nokia Edge", "Blackberry"],
+  "homePageUrl": "https://rahulshettyacademy.com/angularpractice/",
+  "productPageUrl": "https://rahulshettyacademy.com/angularpractice/shop",
+  "checkoutPageUrl":"https://rahulshettyacademy.com/angularpractice/shop",
+  "finalPageUrl": "https://rahulshettyacademy.com/angularpractice/shop"
 }
