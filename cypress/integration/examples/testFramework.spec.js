@@ -31,5 +31,18 @@ describe('Test', () => {
     cy.get('#inlineRadio2').should('be.not.checked');
     cy.get('#inlineRadio2').check();
     cy.get('#inlineRadio2').should('be.checked');
+    cy.get('input[name="bday"]').type('2020-06-24');
+    cy.get('.btn.btn-success').click();
+    // cy.on('windows:alert', (str) => {
+    //     expect(str).to.be.equal(
+    //       'Success! The Form has been submitted successfully!',
+    //     );
+    //   });
+    cy.get('.nav-link').eq(1).click();
+    cy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');
+    cy.selectProduct('iphone X');
+    cy.selectProduct('Samsung Note 8');
+    cy.selectProduct('Nokia Edge');
+    cy.selectProduct('Blackberry');
   });
 });
