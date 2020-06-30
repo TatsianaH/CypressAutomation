@@ -70,5 +70,16 @@ describe('Test', () => {
     cy.wait(1000);
 
     finalPage.getInputCountryField().should('have.value', 'India');
+
+    finalPage.getCheckBox().check({ force: true });
+    finalPage.getCheckBox().should('be.checked');
+
+    finalPage.getPurchaseInput().click();
+
+    finalPage.getAlertMsg().should('be.visible');
+    finalPage.getAlertMsg().then(function (str) {
+      cy.log(str.text());
+      expect(str.text()).eq(this.data.alertMsg);
+    });
   });
 });

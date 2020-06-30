@@ -6,5 +6,6 @@
   "homePageUrl": "https://rahulshettyacademy.com/angularpractice/",
   "productPageUrl": "https://rahulshettyacademy.com/angularpractice/shop",
   "checkoutPageUrl":"https://rahulshettyacademy.com/angularpractice/shop",
-  "finalPageUrl": "https://rahulshettyacademy.com/angularpractice/shop"
+  "finalPageUrl": "https://rahulshettyacademy.com/angularpractice/shop",
+  "alertMsg": "\n          ×\n          Success! Thank you! Your order will be delivered in next few weeks :-).\n        "
 }

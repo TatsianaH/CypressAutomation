@@ -51,11 +51,13 @@ describe('Practice with different forms, buttons, checkboxes', () => {
     // windows:confirm
     cy.get('#confirmbtn').click();
 
+    // cypress handles confirm window with Ok
     cy.on('windows:confirm', (str) => {
       expect(str).to.be.equal('Hello , Are you sure you want to confirm?');
     });
 
-    // cy.on('windows:confirm', () => {
+    // if you need to click on `Cancel`
+    // cy.on('windows:confirm', (str) => {
     //   return false;
     // });
   });
