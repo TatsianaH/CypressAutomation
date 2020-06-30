@@ -1,6 +1,8 @@
 /// <reference types="Cypress" />
 import HomePage from '../pageObject/HomePage';
 import ProductPage from '../pageObject/ProductPage';
+import CheckoutPage from '../pageObject/CheckoutPage';
+import FinalPage from '../pageObject/FinalPage';
 
 describe('Test', () => {
   before(function () {
@@ -45,7 +47,28 @@ describe('Test', () => {
     });
 
     productPage.getCheckoutBtn().click();
+    cy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');
 
-    cy.get('h4.media-heading').should('have.length', '4');
+    const checkoutPage = new CheckoutPage();
+    checkoutPage.getProducts().should('have.length', '4');
+    checkoutPage.getCheckoutBtn().click();
+
+    const finalPage = new FinalPage();
+    cy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');
+
+    finalPage.getInputCountryField().type('India');
+    cy.wait(2000);
+
+    // finalPage.getCountryFronDropDown().each((el, ind, list) => {
+    //   cy.log(el.text());
+    //   if (el.text() === 'India') {
+    //     el.click();
+    //   }
+    // });
+
+    finalPage.getCountryFronDropDown().click();
+    cy.wait(1000);
+
+    finalPage.getInputCountryField().should('have.value', 'India');
   });
 });
