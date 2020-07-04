@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
-import HomePage from '../pageObject/HomePage';
-import ProductPage from '../pageObject/ProductPage';
-import CheckoutPage from '../pageObject/CheckoutPage';
-import FinalPage from '../pageObject/FinalPage';
+import HomePage from '../../support/pageObject/HomePage';
+import ProductPage from '../../support/pageObject/ProductPage';
+import CheckoutPage from '../../support/pageObject/CheckoutPage';
+import FinalPage from '../../support/pageObject/FinalPage';
 
 describe('Test', () => {
   before(function () {
@@ -53,6 +53,36 @@ describe('Test', () => {
     checkoutPage.getProducts().should('have.length', '4');
     // add tests to check the sum of all products and compare with total price
     //
+
+    // get all text in the 2nd column of the table
+    let totalPriceExpected = 0;
+
+    cy.get('tr td:nth-child(4) strong')
+      .each((el, ind, list) => {
+        const price = el.text().replace(/[^0-9]/g, '');
+        totalPriceExpected = +totalPriceExpected + +price;
+        //verify which one contains the necessary text
+        // if (text.includes('Python')) {
+        //   // get the next child element
+        //   cy.get('tr td:nth-child(4)')
+        //     .eq(ind)
+        //     .next()
+        //     .then((price) => {
+        //       const priceAmount = price.text();
+        //       //verify the price
+        //       expect(priceAmount).to.be.equal('25');
+        //     });
+        // }
+      })
+      .then(function () {
+        cy.log(totalPriceExpected);
+        cy.get('tr td:nth-child(5) h3').should('contain', totalPriceExpected + 1);
+      });
+
+    cy.get('tr td:nth-child(5) h3').then(function (str) {
+      const totalPrice = +str.text().split(' ')[1];
+      expect(totalPrice).eq(totalPriceExpected);
+    });
 
     checkoutPage.getCheckoutBtn().click();
 

@@ -16,7 +16,7 @@ describe('Test', () => {
   });
 
   it('should fill and check all fields on the page', function () {
-    cy.visit('https://rahulshettyacademy.com/angularpractice/');
+    cy.visit(Cypress.env('homeUrl'));
     cy.get('.form-group input[name="name"]').should('have.attr', 'minlength', '2');
     cy.get('.form-group input[name="name"]').type(this.data.name);
     cy.get('.form-group input[name="name"]').should('have.value', this.data.name);
