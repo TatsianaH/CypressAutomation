@@ -80,9 +80,10 @@ describe('Test', () => {
     finalPage.getPurchaseInput().click();
 
     finalPage.getAlertMsg().should('be.visible');
-    finalPage.getAlertMsg().then(function (str) {
-      cy.log(str.text());
-      expect(str.text()).eq(this.data.alertMsg);
-    });
+    finalPage.getAlertMsg().should('have.text', this.data.alertMsg);
+
+    // finalPage.getAlertMsg().then(function (str) {
+    //   expect(str.text()).eq(this.data.alertMsg);
+    // });
   });
 });
