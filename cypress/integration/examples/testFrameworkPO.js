@@ -51,6 +51,9 @@ describe('Test', () => {
 
     const checkoutPage = new CheckoutPage();
     checkoutPage.getProducts().should('have.length', '4');
+    // add tests to check the sum of all products and compare with total price
+    //
+
     checkoutPage.getCheckoutBtn().click();
 
     const finalPage = new FinalPage();
