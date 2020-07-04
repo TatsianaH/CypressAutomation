@@ -82,8 +82,9 @@ describe('Test', () => {
     finalPage.getAlertMsg().should('be.visible');
     finalPage.getAlertMsg().should('have.text', this.data.alertMsg);
 
-    // finalPage.getAlertMsg().then(function (str) {
-    //   expect(str.text()).eq(this.data.alertMsg);
-    // });
+    finalPage.getAlertMsg().then(function (str) {
+      const actualTextMsg = str.text();
+      expect(actualTextMsg.includes('Success')).to.be.true;
+    });
   });
 });
