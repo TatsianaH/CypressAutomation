@@ -97,3 +97,18 @@ Then import it in your test file:
 
 import 'cypress-iframe'
 /// <reference types="cypress-iframe" />
+
+###Install Jenkins
+
+1. Go to https://www.jenkins.io/download/ and download Generic Java Package (.war).
+2. Create on you local machine folder 'jenkins' and move the .war file there.
+3. Download java jdk 12 (https://www.oracle.com/java/technologies/javase/jdk12-archive-downloads.html).
+4. Add java jdk 12 to \$JAVA_HOME (https://youtu.be/y6szNJ4rMZ0) environment variable.
+5. Open terminal and go into folder 'jenkins'.
+6. Run the next command in your terminal:
+   java -jar jenkins.war --enable-future-java
+
+   If it is the first time you need to insert password for jenkins account (on secret folder right mouse click -> Get Info -> right bottom corner click on folder image -> give admin permission yourself -> copy password).
+
+7. Open in browser's address bar localhost:8080.
+8. Install all plugins and create your own account.
