@@ -76,7 +76,7 @@ describe('Test', () => {
       })
       .then(function () {
         cy.log(totalPriceExpected);
-        cy.get('tr td:nth-child(5) h3').should('contain', totalPriceExpected + 1);
+        cy.get('tr td:nth-child(5) h3').should('contain', totalPriceExpected);
       });
 
     cy.get('tr td:nth-child(5) h3').then(function (str) {
