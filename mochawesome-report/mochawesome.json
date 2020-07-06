@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-07-05T15:40:22.908Z",
-    "end": "2020-07-05T15:40:46.552Z",
-    "duration": 23644,
+    "start": "2020-07-06T20:02:29.688Z",
+    "end": "2020-07-06T20:02:58.931Z",
+    "duration": 29243,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "87ad0f1e-84c5-45f6-901d-99506925ae2b",
+      "uuid": "fd85c620-c8d4-4fa7-83e2-c2da333b02ec",
       "title": "",
       "fullFile": "cypress/integration/examples/testFrameworkPO.js",
       "file": "cypress/integration/examples/testFrameworkPO.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c1e920f3-bf90-46da-8c8f-014792d41c7a",
+          "uuid": "d343049f-bb75-42ab-b74b-36048b892287",
           "title": "Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should fill and check all fields on the page",
               "fullTitle": "Test should fill and check all fields on the page",
               "timedOut": null,
-              "duration": 19554,
+              "duration": 24584,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "//cy.visit('https://rahulshettyacademy.com/angularpractice/');\nvar homePage = new _HomePage[\"default\"]();\nhomePage.openUrl(this.data.homePageUrl);\nhomePage.getNameInput().should('have.attr', 'minlength', '2');\nhomePage.getNameInput().type(this.data.name);\nhomePage.getNameInput().should('have.value', this.data.name);\nhomePage.getTwoWayDataBindingExampleInput().should('have.value', this.data.name);\nhomePage.getEmailInput().type(this.data.email);\nhomePage.getPasswordInput().type('123456');\nhomePage.getCheckBox().check();\nhomePage.getCheckBox().should('be.checked');\nhomePage.getGenderSelect().select(this.data.gender);\nhomePage.getEntrepreneurRadioBtn().should('be.disabled');\nhomePage.getEmployedRadioBtn().should('be.not.checked');\nhomePage.getEmployedRadioBtn().check();\nhomePage.getEmployedRadioBtn().should('be.checked');\nhomePage.getDobInput().type('2020-06-24');\nhomePage.getSubmitBtn().click(); // cy.on('windows:alert', (str) => {\n//     expect(str).to.be.equal(\n//       'Success! The Form has been submitted successfully!',\n//     );\n//   });\nhomePage.getProductPageLink().eq(1).click();\ncy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');\nvar productPage = new _ProductPage[\"default\"](); // create custom Cypress command in support/commands.js\nthis.data.productName.forEach(function (el) {\n  cy.selectProduct(el);\n});\nproductPage.getCheckoutBtn().click();\ncy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');\nvar checkoutPage = new _CheckoutPage[\"default\"]();\ncheckoutPage.getProducts().should('have.length', '4'); // add tests to check the sum of all products and compare with total price\n//\n// get all text in the 2nd column of the table\nvar totalPriceExpected = 0;\ncy.get('tr td:nth-child(4) strong').each(function (el, ind, list) {\n  var price = el.text().replace(/[^0-9]/g, '');\n  totalPriceExpected = +totalPriceExpected + +price; //verify which one contains the necessary text\n  // if (text.includes('Python')) {\n  //   // get the next child element\n  //   cy.get('tr td:nth-child(4)')\n  //     .eq(ind)\n  //     .next()\n  //     .then((price) => {\n  //       const priceAmount = price.text();\n  //       //verify the price\n  //       expect(priceAmount).to.be.equal('25');\n  //     });\n  // }\n}).then(function () {\n  cy.log(totalPriceExpected);\n  cy.get('tr td:nth-child(5) h3').should('contain', totalPriceExpected);\n});\ncy.get('tr td:nth-child(5) h3').then(function (str) {\n  var totalPrice = +str.text().split(' ')[1];\n  expect(totalPrice).eq(totalPriceExpected);\n});\ncheckoutPage.getCheckoutBtn().click();\nvar finalPage = new _FinalPage[\"default\"]();\ncy.url().should('be.equal', 'https://rahulshettyacademy.com/angularpractice/shop');\nfinalPage.getInputCountryField().type('India');\ncy.wait(2000); // finalPage.getCountryFronDropDown().each((el, ind, list) => {\n//   cy.log(el.text());\n//   if (el.text() === 'India') {\n//     el.click();\n//   }\n// });\nfinalPage.getCountryFronDropDown().click();\ncy.wait(1000);\nfinalPage.getInputCountryField().should('have.value', 'India');\nfinalPage.getCheckBox().check({\n  force: true\n});\nfinalPage.getCheckBox().should('be.checked');\nfinalPage.getPurchaseInput().click();\nfinalPage.getAlertMsg().should('be.visible');\nfinalPage.getAlertMsg().should('have.text', this.data.alertMsg);\nfinalPage.getAlertMsg().then(function (str) {\n  var actualTextMsg = str.text();\n  expect(actualTextMsg.includes('Success')).to.be[\"true\"];\n});",
               "err": {},
-              "uuid": "204d4a2f-46ff-4362-82d4-6f3edf09f607",
-              "parentUUID": "c1e920f3-bf90-46da-8c8f-014792d41c7a",
+              "uuid": "1195357d-a3ff-4752-b9d7-acb6caf5891b",
+              "parentUUID": "d343049f-bb75-42ab-b74b-36048b892287",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "204d4a2f-46ff-4362-82d4-6f3edf09f607"
+            "1195357d-a3ff-4752-b9d7-acb6caf5891b"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 19554,
+          "duration": 24584,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
