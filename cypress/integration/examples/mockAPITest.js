@@ -4,6 +4,8 @@ describe('API mock test', () => {
   it('should return an error message', function () {
     cy.visit('https://example.cypress.io/commands/network-requests');
     cy.server();
+
+    // route method use for API + FE testing
     cy.route({
       method: 'PUT',
       url: '/comments/*',
